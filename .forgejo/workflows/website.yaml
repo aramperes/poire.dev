@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: docker
+    container:
+      privileged: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
