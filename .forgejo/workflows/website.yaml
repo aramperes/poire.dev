@@ -4,7 +4,7 @@ on:
       - master
   paths:
       - 'website/**'
-      - '.forgejo/workflows/website.yml'
+      - '**/website.yml'
 jobs:
   build:
     runs-on: docker
