@@ -3,10 +3,10 @@ on:
     branches:
       - master
     paths:
-      - 'abitibi/**'
-      - '**/abitibi.yaml'
+      - 'website/**'
+      - '**/website.yaml'
 jobs:
-  build-abitibi-image:
+  build-website-image:
     runs-on: docker
     steps:
       - name: Checkout code
@@ -20,10 +20,10 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: aramperes/abitibi.momoperes.ca
+          image: aramperes/poire.dev
           tags: ${{ steps.extract_tag.outputs.tag }}
-          context: ./abitibi
-          containerfiles: ./abitibi/docker/Dockerfile
+          context: ./website
+          containerfiles: ./website/docker/Dockerfile
       - name: Push to Registry
         uses: https://github.com/redhat-actions/push-to-registry@v2
         with:
