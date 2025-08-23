@@ -21,8 +21,8 @@ jobs:
         with:
           image: git.poire.dev/aramperes/poire.dev
           tags: ${{ steps.extract_tag.outputs.tag }}
-          context: website
-          containerfiles: Dockerfile
+          context: ./website
+          containerfiles: ./website/Dockerfile
       # - name: Build and push Docker image
       #   uses: docker/build-push-action@v2
       #   with:
