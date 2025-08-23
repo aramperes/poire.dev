@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - master
+  paths:
+      - 'website/**'
+      - '.forgejo/workflows/website.yml'
+jobs:
+  build:
+    runs-on: docker
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Test docker
+        run: docker ps
