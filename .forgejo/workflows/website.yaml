@@ -4,7 +4,7 @@ on:
       - master
   paths:
       - 'website/**'
-      - '**/website.yml'
+      - '**/website.yaml'
 jobs:
   build:
     runs-on: docker
