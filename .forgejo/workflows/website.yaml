@@ -11,7 +11,7 @@ jobs:
     container:
       image: docker:latest
     env:
-      DOCKER_HOST: tcp://docker-in-docker:2375
+      DOCKER_HOST: tcp://127.0.0.1:2375
     steps:
       - name: Install Node.js
         run: apk add --no-cache nodejs npm
