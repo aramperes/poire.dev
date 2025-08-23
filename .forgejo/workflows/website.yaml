@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: docker
+    env:
+      DOCKER_HOST: tcp://localhost:2375
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
