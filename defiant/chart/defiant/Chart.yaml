@@ -1,5 +1,0 @@
-apiVersion: v1
-description: DefiantSails entry for PythonDiscord code jam number 2
-engine: gotpl
-name: defiant
-version: 0.1.0
