@@ -9,8 +9,6 @@ jobs:
   build:
     runs-on: docker
     steps:
-      - name: Install Node.js
-        run: apk add --no-cache nodejs npm
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Docker Buildx
