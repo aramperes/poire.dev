@@ -31,4 +31,4 @@ jobs:
           tags: ${{ steps.build-image.outputs.tags }}
           registry: git.poire.dev
           username: ${{ env.FORGEJO_ACTOR }}
-          password: ${{ secrets.FORGEJO_TOKEN }}
+          password: ${{ secrets.PACKAGE_TOKEN }}
