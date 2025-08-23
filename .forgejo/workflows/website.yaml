@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: docker
+    container:
+      image: docker:latest
+      options: --privileged -v /var/run/docker.sock:/var/run/docker.sock
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
