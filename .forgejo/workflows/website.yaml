@@ -2,9 +2,9 @@ on:
   push:
     branches:
       - master
-  paths:
-      - 'website/**'
-      - '**/website.yaml'
+    paths:
+        - 'website/**'
+        - '**/website.yaml'
 jobs:
   build:
     runs-on: docker
