@@ -14,6 +14,8 @@ jobs:
       - name: Extract the tag
         id: extract_tag
         run: echo "::set-output name=tag::$(echo ${{ forge.sha }} | cut -c1-10)"
+      - name: Install Buildah
+        run: apt-get update && apt-get install -y buildah
       - name: Buildah Action
         uses: redhat-actions/buildah-build@v2
         with:
