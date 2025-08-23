@@ -24,6 +24,7 @@ jobs:
           tags: ${{ steps.extract_tag.outputs.tag }}
           context: ./website
           containerfiles: ./website/docker/Dockerfile
+          extra-args: --storage-driver vfs
       - name: Push to Registry
         uses: https://github.com/redhat-actions/push-to-registry@v2
         with:
