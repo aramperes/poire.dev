@@ -16,10 +16,19 @@ jobs:
         run: echo "::set-output name=tag::$(echo ${{ forge.sha }} | cut -c1-10)"
       - name: Install Buildah
         run: apt-get update && apt-get install -y buildah
-      - name: Buildah Action
+      - name: Buildah Build
+        id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
           image: git.poire.dev/aramperes/poire.dev
           tags: ${{ steps.extract_tag.outputs.tag }}
           context: ./website
           containerfiles: ./website/docker/Dockerfile
+      - name: Push to Registry
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
+          registry: git.poire.dev
+          username: ${{ secrets.FORGEJO_ACTOR }}
+          password: ${{ secrets.FORGEJO_TOKEN }}
